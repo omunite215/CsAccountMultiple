@@ -19,9 +19,9 @@ export default function Card(props: CardProps) {
         <props.icon
           className={cn("h-4 w-4", {
             "text-destructive animate-pulse": props.label === "Start",
-            "text-yellow-400 dark:text-yellow-500 animate-spin-3 delay-700":
+            "text-yellow-500 dark:text-yellow-600 animate-spin-3 delay-700":
               props.label === "In-Processing",
-            " text-green-500 dark:text-green-600 animate pulse": "Completed",
+            " text-green-500 dark:text-green-600 animate-pulse": props.label === "Completed",
           })}
         />
       </section>
