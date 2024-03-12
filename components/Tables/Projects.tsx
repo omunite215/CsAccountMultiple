@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -35,92 +35,12 @@ const data: ProjectData[] = [
   {
     id: "m5gr84i9",
     status: "Completed",
-    company: "Alibaba.com",
+    company: "ABCD",
     project: "Incorporation",
-    start: "19-02-2023",
-    due: "12-05-2023",
+    start: "01-03-2024",
+    due: "31-03-2024",
     published: 2,
     processBy: "Yon Roe",
-  },
-  {
-    id: "3u1reuv4",
-    status: "In-Processing",
-    company: "RenRen.com",
-    project: "Incorporation",
-    start: "19-02-2023",
-    due: "12-05-2023",
-    published: 2,
-    processBy: "Chang",
-  },
-  {
-    id: "derv1ws0",
-    status: "Preparation",
-    company: "Tencent",
-    project: "Incorporation",
-    start: "19-02-2023",
-    due: "12-05-2023",
-    published: 2,
-    processBy: "Shizuka",
-  },
-  {
-    id: "5kma53ae",
-    status: "In-Processing",
-    company: "BYD.co",
-    project: "Incorporation",
-    start: "19-02-2023",
-    due: "12-05-2023",
-    published: 2,
-    processBy: "Minamoto",
-  },
-  {
-    id: "bhqecj4p",
-    status: "Completed",
-    company: "PetroChina",
-    project: "Incorporation",
-    start: "19-02-2023",
-    due: "12-05-2023",
-    published: 2,
-    processBy: "Yamada",
-  },
-  {
-    id: "8jg4nrw5",
-    status: "Preparation",
-    company: "Baidu",
-    project: "Expansion",
-    start: "19-02-2023",
-    due: "15-06-2023",
-    published: 1,
-    processBy: "Kemumaki",
-  },
-  {
-    id: "h2n9cr3a",
-    status: "In-Processing",
-    company: "JD.com",
-    project: "Merger",
-    start: "19-02-2023",
-    due: "18-07-2023",
-    published: 3,
-    processBy: "Kenichi",
-  },
-  {
-    id: "p0q1stuv",
-    status: "Completed",
-    company: "Haier Group",
-    project: "Diversification",
-    start: "19-02-2023",
-    due: "22-08-2023",
-    published: 2,
-    processBy: "Sa Yan",
-  },
-  {
-    id: "v8w3sd5i",
-    status: "Preparation",
-    company: "China Mobile",
-    project: "Strategic Alliance",
-    start: "19-02-2023",
-    due: "10-09-2023",
-    published: 2,
-    processBy: "Meizu",
   },
 ];
 
@@ -167,7 +87,14 @@ export const columns: ColumnDef<ProjectData>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("company")}</div>
+      <div className="capitalize">
+        <a
+          href={`/document_status/${row.original.id}`}
+          className={buttonVariants({ variant: "link" })}
+        >
+          {row.getValue("company")}
+        </a>
+      </div>
     ),
   },
   {
