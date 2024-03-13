@@ -87,7 +87,7 @@ export const cardData: CardProps[] = [
 export const data: ProjectData[] = [
   {
     id: "m5gr84i9",
-    status: "Completed",
+    status: "In-Processing",
     company: "ABCD",
     project: "Incorporation",
     start: "01-03-2024",
