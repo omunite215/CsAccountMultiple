@@ -40,7 +40,7 @@ const page = ({ params }: { params: { id: string } }) => {
   };
   const handleNNC1 = () => {
     const filePath = "/documents/NNC1.pdf";
-    download(filePath, "NNC1.pdf", "application/pdf");
+    download(filePath, "NNC1.pdf");
   };
 
   return (
