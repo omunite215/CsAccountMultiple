@@ -38,6 +38,10 @@ const page = ({ params }: { params: { id: string } }) => {
     const filePath = "/documents/D1P.pdf";
     download(filePath, "D1P.pdf", "application/pdf");
   };
+  const handleNNC1 = () => {
+    const filePath = "/documents/NNC1.pdf";
+    download(filePath, "NNC1.pdf", "application/pdf");
+  };
 
   return (
     <Card className="my-6 container">
@@ -85,6 +89,7 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  onClick={() => window.open('/documents/NNC1.pdf', '_blank')}
                 >
                   Preview Merged
                 </span>
@@ -95,6 +100,7 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  onClick={handleNNC1}
                 >
                   Print
                 </span>
@@ -428,7 +434,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>-</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">5</TableCell>
+                  <TableCell className="font-medium">6</TableCell>
                   <TableCell>Curtis Mar</TableCell>
                   <TableCell>Company Secretary</TableCell>
                   <TableCell>Person</TableCell>
