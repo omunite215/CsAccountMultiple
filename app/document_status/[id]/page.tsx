@@ -35,12 +35,12 @@ const page = ({ params }: { params: { id: string } }) => {
     download(filePath, "D1P.pdf", "application/pdf");
   };
   const handleDirector1Company = () => {
-    const filePath = "/documents/D1P.pdf";
-    download(filePath, "D1P.pdf", "application/pdf");
+    const filePath = "/documents/D1C.pdf";
+    download(filePath, "D1C.pdf", "application/pdf");
   };
   const handleNNC1 = () => {
     const filePath = "/documents/NNC1.pdf";
-    download(filePath, "NNC1.pdf");
+    download(filePath, "NNC1.pdf", "application/pdf");
   };
 
   return (
