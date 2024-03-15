@@ -38,7 +38,7 @@ export default function RootLayout({
         >
           <main className="relative">
             <SiteHeader />
-            <div className="flex-1 sm:px-16 px-6 flex justify-center items-center">{children}</div>
+            <div className="container">{children}</div>
           </main>
         </ThemeProvider>
       </body>

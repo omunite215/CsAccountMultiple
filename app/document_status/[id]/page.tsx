@@ -25,23 +25,9 @@ import {
 } from "@/components/ui/table";
 import { data } from "@/lib/constants";
 import { Slash } from "lucide-react";
-import download from "downloadjs";
 
 const page = ({ params }: { params: { id: string } }) => {
   const projectToFetch = data.find((project) => project.id === params.id);
-
-  const handleDirector1Person = () => {
-    const filePath = "/documents/D1P.pdf";
-    download(filePath, "D1P.pdf", "application/pdf");
-  };
-  const handleDirector1Company = () => {
-    const filePath = "/documents/D1C.pdf";
-    download(filePath, "D1C.pdf", "application/pdf");
-  };
-  const handleNNC1 = () => {
-    const filePath = "/documents/NNC1.pdf";
-    download(filePath, "NNC1.pdf", "application/pdf");
-  };
 
   return (
     <Card className="my-6 container">
@@ -89,21 +75,22 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={() => window.open('/documents/NNC1.pdf', '_blank')}
+                  onClick={() => window.open("/documents/NNC1.pdf", "_blank")}
                 >
                   Preview Merged
                 </span>
               </TableCell>
               <TableCell>
-                <span
+                <a
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={handleNNC1}
+                  download
+                  href="/documents/NNC1.pdf"
                 >
                   Print
-                </span>
+                </a>
               </TableCell>
               <TableCell>
                 <span
@@ -132,19 +119,22 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  onClick={() => window.open("/documents/AA.pdf", "_blank")}
                 >
                   Preview
                 </span>
               </TableCell>
               <TableCell>
-                <span
+                <a
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  href="/documents/AA.pdf"
+                  download
                 >
                   Print
-                </span>
+                </a>
               </TableCell>
               <TableCell>
                 <span
@@ -240,19 +230,22 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  onClick={() => window.open("/documents/IRBR1.pdf", "_blank")}
                 >
                   Preview
                 </span>
               </TableCell>
               <TableCell>
-                <span
+                <a
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  href="/documents/IRBR1.pdf"
+                  download
                 >
                   Print
-                </span>
+                </a>
               </TableCell>
               <TableCell>
                 <span
@@ -388,15 +381,16 @@ const page = ({ params }: { params: { id: string } }) => {
                     </span>
                   </TableCell>
                   <TableCell>
-                    <span
+                    <a
                       className={buttonVariants({
                         variant: "secondary",
                         className: "cursor-pointer",
                       })}
-                      onClick={handleDirector1Person}
+                      href="/documents/D1P.pdf"
+                      download
                     >
                       Print
-                    </span>
+                    </a>
                   </TableCell>
                   <TableCell>-</TableCell>
                   <TableCell>-</TableCell>
@@ -420,15 +414,16 @@ const page = ({ params }: { params: { id: string } }) => {
                     </span>
                   </TableCell>
                   <TableCell>
-                    <span
+                    <a
                       className={buttonVariants({
                         variant: "secondary",
                         className: "cursor-pointer",
                       })}
-                      onClick={handleDirector1Company}
+                      href="/documents/D1C.pdf"
+                      download
                     >
                       Print
-                    </span>
+                    </a>
                   </TableCell>
                   <TableCell>-</TableCell>
                   <TableCell>-</TableCell>

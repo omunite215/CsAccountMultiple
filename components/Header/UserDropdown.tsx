@@ -15,8 +15,8 @@ const UserDropdown = () => {
       <DropdownMenuTrigger className=" cursor-pointer" asChild>
         <div className="flex items-center justify-end gap-2">
           <div className="sm:flex hidden flex-col justify-start items-end gap-0.5">
-            <h1 className=" text-base">Chun</h1>
-            <h2 className=" text-xs">Account User</h2>
+            <h1 className="text-base">Chun</h1>
+            <h2 className="text-xs">Account User</h2>
           </div>
           <Avatar>
             <AvatarImage src="/user/user-02.png" />
