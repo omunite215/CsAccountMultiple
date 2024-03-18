@@ -198,6 +198,7 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  onClick={() => window.open('/documents/MOM.pdf', '_blank')}
                 >
                   Preview (Signed)
                 </span>
