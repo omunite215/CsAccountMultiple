@@ -38,7 +38,7 @@ export default function RootLayout({
         >
           <main className="relative">
             <SiteHeader />
-            <div className="container">{children}</div>
+            <div className="container px-0">{children}</div>
           </main>
         </ThemeProvider>
       </body>

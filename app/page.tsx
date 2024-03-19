@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="py-6">
+    <main className="py-6 px-0">
       <section className="grid grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-4">
         {cardData.map((data, index) => (
           <Card
@@ -20,7 +20,7 @@ export default function Home() {
           />
         ))}
       </section>
-      <section className="mt-6 font-sans">
+      <section className="mt-6 font-sans px-0">
         <Tabs defaultValue="projects">
           <TabsList className="grid w-full grid-cols-2 sm:mb-0 mb-40">
             <TabsTrigger value="projects">Projects</TabsTrigger>

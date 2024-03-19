@@ -1,5 +1,7 @@
 "use client";
 
+import ButtonLink from "@/components/ButtonLink";
+import { UploadPopup } from "@/components/UploadPopup";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,7 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -24,7 +26,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { data } from "@/lib/constants";
-import { Slash } from "lucide-react";
+import { Slash, Download } from "lucide-react";
 
 const page = ({ params }: { params: { id: string } }) => {
   const projectToFetch = data.find((project) => project.id === params.id);
@@ -60,9 +62,8 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableHead>Sr No.</TableHead>
               <TableHead>Documents</TableHead>
               <TableHead>Generated</TableHead>
-              <TableHead>Pending</TableHead>
+              <TableHead>Download</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead>Reminder</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -77,7 +78,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   })}
                   onClick={() => window.open("/documents/NNC1.pdf", "_blank")}
                 >
-                  Preview Merged
+                  Preview
                 </span>
               </TableCell>
               <TableCell>
@@ -89,26 +90,10 @@ const page = ({ params }: { params: { id: string } }) => {
                   download
                   href="/documents/NNC1.pdf"
                 >
-                  Print
+                  <Download />
                 </a>
               </TableCell>
-              <TableCell>
-                <span
-                  className={buttonVariants({ className: "cursor-pointer" })}
-                >
-                  3 Signed
-                </span>
-              </TableCell>
-              <TableCell>
-                <span
-                  className={buttonVariants({
-                    variant: "outline",
-                    className: "cursor-pointer",
-                  })}
-                >
-                  Resend
-                </span>
-              </TableCell>
+              <TableCell>3 Signed</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">2</TableCell>
@@ -133,26 +118,10 @@ const page = ({ params }: { params: { id: string } }) => {
                   href="/documents/AA.pdf"
                   download
                 >
-                  Print
+                  <Download />
                 </a>
               </TableCell>
-              <TableCell>
-                <span
-                  className={buttonVariants({ className: "cursor-pointer" })}
-                >
-                  3 Signed
-                </span>
-              </TableCell>
-              <TableCell>
-                <span
-                  className={buttonVariants({
-                    variant: "outline",
-                    className: "cursor-pointer",
-                  })}
-                >
-                  Resend
-                </span>
-              </TableCell>
+              <TableCell>3 Signed</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">3</TableCell>
@@ -163,31 +132,24 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  onClick={() => window.open("/documents/SA.pdf", "_blank")}
                 >
                   Preview
                 </span>
               </TableCell>
-              <TableCell>-</TableCell>
               <TableCell>
-                <span
+                <a
                   className={buttonVariants({
-                    variant: "destructive",
+                    variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  download
+                  href="/documents/SA.pdf"
                 >
-                  3 Unsigned
-                </span>
+                  <Download />
+                </a>
               </TableCell>
-              <TableCell>
-                <span
-                  className={buttonVariants({
-                    variant: "outline",
-                    className: "cursor-pointer",
-                  })}
-                >
-                  Resend
-                </span>
-              </TableCell>
+              <TableCell className="text-destructive">3 Unsigned</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">4</TableCell>
@@ -198,29 +160,24 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={() => window.open('/documents/MOM.pdf', '_blank')}
+                  onClick={() => window.open("/documents/MOM.pdf", "_blank")}
                 >
-                  Preview (Signed)
-                </span>
-              </TableCell>
-              <TableCell>-</TableCell>
-              <TableCell>
-                <span
-                  className={buttonVariants({ className: "cursor-pointer" })}
-                >
-                  3 Signed
+                  Preview
                 </span>
               </TableCell>
               <TableCell>
-                <span
+                <a
                   className={buttonVariants({
-                    variant: "outline",
+                    variant: "secondary",
                     className: "cursor-pointer",
                   })}
+                  download
+                  href="/documents/MOM.pdf"
                 >
-                  Resend
-                </span>
+                  <Download />
+                </a>
               </TableCell>
+              <TableCell>3 Signed</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">5</TableCell>
@@ -245,17 +202,10 @@ const page = ({ params }: { params: { id: string } }) => {
                   href="/documents/IRBR1.pdf"
                   download
                 >
-                  Print
+                  <Download />
                 </a>
               </TableCell>
-              <TableCell>
-                <span
-                  className={buttonVariants({ className: "cursor-pointer" })}
-                >
-                  3 Signed
-                </span>
-              </TableCell>
-              <TableCell>-</TableCell>
+              <TableCell>3 Signed</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -272,190 +222,84 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableHead>Documents</TableHead>
                   <TableHead>Position</TableHead>
                   <TableHead>Type</TableHead>
-                  <TableHead>Generated</TableHead>
-                  <TableHead>Pending</TableHead>
-                  <TableHead>Status</TableHead>
+                  <TableHead>Download</TableHead>
+                  <TableHead>Upload</TableHead>
                   <TableHead>Reminder</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 <TableRow>
                   <TableCell className="font-medium">1</TableCell>
-                  <TableCell>Chang Kun Lee</TableCell>
+                  <TableCell>Ma Heuteng</TableCell>
                   <TableCell>Shareholder 1</TableCell>
                   <TableCell>Person</TableCell>
-                  <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Preview
-                    </span>
+                  <TableCell className="space-x-1.5">
+                    <ButtonLink href="/documents/Users/Shareholder1/S1.pdf" toolTipContent="Sign NNC1 Form" />
+                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download ID Proof"/>
+                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download Address Proof"/>
                   </TableCell>
                   <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Print
-                    </span>
+                    <UploadPopup type="Person"/>
                   </TableCell>
-                  <TableCell>-</TableCell>
-                  <TableCell>-</TableCell>
+                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">2</TableCell>
                   <TableCell>Tencent Games Pvt. Ltd.</TableCell>
                   <TableCell>Shareholder 2</TableCell>
                   <TableCell>Company</TableCell>
-                  <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Preview
-                    </span>
+                  <TableCell className="space-x-1.5">
+                    <ButtonLink href="/documents/Users/Shareholder2/S1.pdf" toolTipContent="Sign NNC1 Form" />
+                    <ButtonLink href="/documents/Users/Shareholder2/ID.pdf" toolTipContent="Download ID Proof"/>
                   </TableCell>
                   <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Print
-                    </span>
+                    <UploadPopup type="Company"/>
                   </TableCell>
-                  <TableCell>-</TableCell>
-                  <TableCell>-</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium">3</TableCell>
-                  <TableCell>Minamoto Riotsu</TableCell>
-                  <TableCell>Shareholder 3</TableCell>
-                  <TableCell>Person</TableCell>
-                  <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Preview
-                    </span>
-                  </TableCell>
-                  <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Print
-                    </span>
-                  </TableCell>
-                  <TableCell>-</TableCell>
-                  <TableCell>-</TableCell>
+                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">4</TableCell>
-                  <TableCell>Om Patel</TableCell>
+                  <TableCell>Ma Heauteng</TableCell>
                   <TableCell>Director 1</TableCell>
                   <TableCell>Person</TableCell>
-                  <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                      onClick={() =>
-                        window.open("/documents/D1P.pdf", "_blank")
-                      }
-                    >
-                      Preview
-                    </span>
+                  <TableCell className="space-x-1.5">
+                    <ButtonLink href="/documents/Users/Shareholder1/S1.pdf" toolTipContent="Sign NNC1 Form" />
+                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download ID Proof"/>
+                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download Address Proof"/>
                   </TableCell>
                   <TableCell>
-                    <a
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                      href="/documents/D1P.pdf"
-                      download
-                    >
-                      Print
-                    </a>
+                   <UploadPopup type="Person"/>
                   </TableCell>
-                  <TableCell>-</TableCell>
-                  <TableCell>-</TableCell>
+                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">5</TableCell>
                   <TableCell>Way to Web Pvt. Ltd.</TableCell>
                   <TableCell>Director 1</TableCell>
                   <TableCell>Company</TableCell>
-                  <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                      onClick={() =>
-                        window.open("/documents/D1C.pdf", "_blank")
-                      }
-                    >
-                      Preview
-                    </span>
+                  <TableCell className="space-x-1.5">
+                    <ButtonLink href="/documents/Users/Director1Company/D1C.pdf" toolTipContent="Sign NNC1 Form" />
+                    <ButtonLink href="/documents/Users/Director1Company/ID.pdf" toolTipContent="Download ID Proof"/>
                   </TableCell>
                   <TableCell>
-                    <a
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                      href="/documents/D1C.pdf"
-                      download
-                    >
-                      Print
-                    </a>
+                   <UploadPopup type="Company"/>
                   </TableCell>
-                  <TableCell>-</TableCell>
-                  <TableCell>-</TableCell>
+                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">6</TableCell>
                   <TableCell>Curtis Mar</TableCell>
                   <TableCell>Company Secretary</TableCell>
                   <TableCell>Person</TableCell>
-                  <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Preview
-                    </span>
+                  <TableCell className="space-x-1.5">
+                    <ButtonLink href="/documents/Users/CompanySecretary/CS.pdf" toolTipContent="Sign NNC1 Form" />
+                    <ButtonLink href="/documents/Users/CompanySecretary/ID.pdf" toolTipContent="Download ID Proof"/>
+                    <ButtonLink href="/documents/Users/CompanySecretary/ID.pdf" toolTipContent="Download Address Proof"/>
                   </TableCell>
                   <TableCell>
-                    <span
-                      className={buttonVariants({
-                        variant: "secondary",
-                        className: "cursor-pointer",
-                      })}
-                    >
-                      Print
-                    </span>
+                    <UploadPopup type="Person"/>
                   </TableCell>
-                  <TableCell>-</TableCell>
-                  <TableCell>-</TableCell>
+                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
               </TableBody>
             </Table>
