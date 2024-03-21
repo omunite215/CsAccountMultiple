@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -10,7 +9,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -19,6 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Upload } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -29,8 +28,6 @@ const FileSchema = z.object({
   type: z.enum(["pdf", "jpg"]),
   size: z.number(),
 });
-
-const AddressProofFileSchema = FileSchema.partial();
 
 const FileInputSchema = z.object({
   AddressProof: z
@@ -143,9 +140,7 @@ export function UploadPopup({ type }: { type: string }) {
               )}
             />
             <DialogFooter>
-              <DialogClose asChild>
-                <Button type="submit">Submit</Button>
-              </DialogClose>
+              <Button type="submit">Submit</Button>
             </DialogFooter>
           </form>
         </Form>

@@ -1,7 +1,7 @@
 "use client";
 
 import ButtonLink from "@/components/ButtonLink";
-import { UploadPopup } from "@/components/UploadPopup";
+import { SignPopup, UploadPopup } from "@/components/Popups";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,7 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -26,7 +26,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { data } from "@/lib/constants";
-import { Slash, Download } from "lucide-react";
+import { Slash } from "lucide-react";
 
 const page = ({ params }: { params: { id: string } }) => {
   const projectToFetch = data.find((project) => project.id === params.id);
@@ -62,7 +62,6 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableHead>Sr No.</TableHead>
               <TableHead>Documents</TableHead>
               <TableHead>Generated</TableHead>
-              <TableHead>Download</TableHead>
               <TableHead>Status</TableHead>
             </TableRow>
           </TableHeader>
@@ -78,22 +77,12 @@ const page = ({ params }: { params: { id: string } }) => {
                   })}
                   onClick={() => window.open("/documents/NNC1.pdf", "_blank")}
                 >
-                  Preview
+                  Print & Preview
                 </span>
               </TableCell>
               <TableCell>
-                <a
-                  className={buttonVariants({
-                    variant: "secondary",
-                    className: "cursor-pointer",
-                  })}
-                  download
-                  href="/documents/NNC1.pdf"
-                >
-                  <Download />
-                </a>
+                <SignPopup text="3 Signed" />
               </TableCell>
-              <TableCell>3 Signed</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">2</TableCell>
@@ -106,22 +95,12 @@ const page = ({ params }: { params: { id: string } }) => {
                   })}
                   onClick={() => window.open("/documents/AA.pdf", "_blank")}
                 >
-                  Preview
+                  Print & Preview
                 </span>
               </TableCell>
-              <TableCell>
-                <a
-                  className={buttonVariants({
-                    variant: "secondary",
-                    className: "cursor-pointer",
-                  })}
-                  href="/documents/AA.pdf"
-                  download
-                >
-                  <Download />
-                </a>
+              <TableCell className="text-muted-foreground">
+                No Sign Needed
               </TableCell>
-              <TableCell>3 Signed</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">3</TableCell>
@@ -134,22 +113,13 @@ const page = ({ params }: { params: { id: string } }) => {
                   })}
                   onClick={() => window.open("/documents/SA.pdf", "_blank")}
                 >
-                  Preview
+                  Print & Preview
                 </span>
               </TableCell>
+
               <TableCell>
-                <a
-                  className={buttonVariants({
-                    variant: "secondary",
-                    className: "cursor-pointer",
-                  })}
-                  download
-                  href="/documents/SA.pdf"
-                >
-                  <Download />
-                </a>
+                <SignPopup text="3 Signed" />
               </TableCell>
-              <TableCell className="text-destructive">3 Unsigned</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">4</TableCell>
@@ -162,22 +132,12 @@ const page = ({ params }: { params: { id: string } }) => {
                   })}
                   onClick={() => window.open("/documents/MOM.pdf", "_blank")}
                 >
-                  Preview
+                  Print & Preview
                 </span>
               </TableCell>
               <TableCell>
-                <a
-                  className={buttonVariants({
-                    variant: "secondary",
-                    className: "cursor-pointer",
-                  })}
-                  download
-                  href="/documents/MOM.pdf"
-                >
-                  <Download />
-                </a>
+                <SignPopup text="3 Signed" />
               </TableCell>
-              <TableCell>3 Signed</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">5</TableCell>
@@ -190,22 +150,12 @@ const page = ({ params }: { params: { id: string } }) => {
                   })}
                   onClick={() => window.open("/documents/IRBR1.pdf", "_blank")}
                 >
-                  Preview
+                  Print & Preview
                 </span>
               </TableCell>
-              <TableCell>
-                <a
-                  className={buttonVariants({
-                    variant: "secondary",
-                    className: "cursor-pointer",
-                  })}
-                  href="/documents/IRBR1.pdf"
-                  download
-                >
-                  <Download />
-                </a>
+              <TableCell className="text-muted-foreground">
+                No Sign Needed
               </TableCell>
-              <TableCell>3 Signed</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -224,7 +174,6 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableHead>Type</TableHead>
                   <TableHead>Download</TableHead>
                   <TableHead>Upload</TableHead>
-                  <TableHead>Reminder</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -234,14 +183,22 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Shareholder 1</TableCell>
                   <TableCell>Person</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink href="/documents/Users/Shareholder1/S1.pdf" toolTipContent="Sign NNC1 Form" />
-                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download ID Proof"/>
-                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download Address Proof"/>
+                    <ButtonLink
+                      href="/documents/Users/Shareholder1/S1.pdf"
+                      toolTipContent="Sign NNC1 Form"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/Shareholder1/ID.pdf"
+                      toolTipContent="Download ID Proof"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/Shareholder1/ID.pdf"
+                      toolTipContent="Download Address Proof"
+                    />
                   </TableCell>
                   <TableCell>
-                    <UploadPopup type="Person"/>
+                    <UploadPopup type="Person" />
                   </TableCell>
-                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">2</TableCell>
@@ -249,13 +206,18 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Shareholder 2</TableCell>
                   <TableCell>Company</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink href="/documents/Users/Shareholder2/S1.pdf" toolTipContent="Sign NNC1 Form" />
-                    <ButtonLink href="/documents/Users/Shareholder2/ID.pdf" toolTipContent="Download ID Proof"/>
+                    <ButtonLink
+                      href="/documents/Users/Shareholder2/S1.pdf"
+                      toolTipContent="Sign NNC1 Form"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/Shareholder2/ID.pdf"
+                      toolTipContent="Download ID Proof"
+                    />
                   </TableCell>
                   <TableCell>
-                    <UploadPopup type="Company"/>
+                    <UploadPopup type="Company" />
                   </TableCell>
-                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">4</TableCell>
@@ -263,14 +225,22 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Director 1</TableCell>
                   <TableCell>Person</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink href="/documents/Users/Shareholder1/S1.pdf" toolTipContent="Sign NNC1 Form" />
-                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download ID Proof"/>
-                    <ButtonLink href="/documents/Users/Shareholder1/ID.pdf" toolTipContent="Download Address Proof"/>
+                    <ButtonLink
+                      href="/documents/Users/Shareholder1/S1.pdf"
+                      toolTipContent="Sign NNC1 Form"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/Shareholder1/ID.pdf"
+                      toolTipContent="Download ID Proof"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/Shareholder1/ID.pdf"
+                      toolTipContent="Download Address Proof"
+                    />
                   </TableCell>
                   <TableCell>
-                   <UploadPopup type="Person"/>
+                    <UploadPopup type="Person" />
                   </TableCell>
-                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">5</TableCell>
@@ -278,13 +248,18 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Director 1</TableCell>
                   <TableCell>Company</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink href="/documents/Users/Director1Company/D1C.pdf" toolTipContent="Sign NNC1 Form" />
-                    <ButtonLink href="/documents/Users/Director1Company/ID.pdf" toolTipContent="Download ID Proof"/>
+                    <ButtonLink
+                      href="/documents/Users/Director1Company/D1C.pdf"
+                      toolTipContent="Sign NNC1 Form"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/Director1Company/ID.pdf"
+                      toolTipContent="Download ID Proof"
+                    />
                   </TableCell>
                   <TableCell>
-                   <UploadPopup type="Company"/>
+                    <UploadPopup type="Company" />
                   </TableCell>
-                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">6</TableCell>
@@ -292,14 +267,22 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Company Secretary</TableCell>
                   <TableCell>Person</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink href="/documents/Users/CompanySecretary/CS.pdf" toolTipContent="Sign NNC1 Form" />
-                    <ButtonLink href="/documents/Users/CompanySecretary/ID.pdf" toolTipContent="Download ID Proof"/>
-                    <ButtonLink href="/documents/Users/CompanySecretary/ID.pdf" toolTipContent="Download Address Proof"/>
+                    <ButtonLink
+                      href="/documents/Users/CompanySecretary/CS.pdf"
+                      toolTipContent="Sign NNC1 Form"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/CompanySecretary/ID.pdf"
+                      toolTipContent="Download ID Proof"
+                    />
+                    <ButtonLink
+                      href="/documents/Users/CompanySecretary/ID.pdf"
+                      toolTipContent="Download Address Proof"
+                    />
                   </TableCell>
                   <TableCell>
-                    <UploadPopup type="Person"/>
+                    <UploadPopup type="Person" />
                   </TableCell>
-                  <TableCell><Button variant="outline">Resend</Button></TableCell>
                 </TableRow>
               </TableBody>
             </Table>
