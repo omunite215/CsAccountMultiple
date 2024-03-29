@@ -83,7 +83,7 @@ const page = ({ params }: { params: { id: string } }) => {
                 </Link>
               </TableCell>
               <TableCell>
-                <SignPopup text="3 Signed" />
+                <SignPopup text="2 Signed" />
               </TableCell>
             </TableRow>
             <TableRow>
@@ -122,7 +122,7 @@ const page = ({ params }: { params: { id: string } }) => {
               </TableCell>
 
               <TableCell>
-                <SignPopup text="3 Signed" />
+                <SignPopup text="2 Signed" />
               </TableCell>
             </TableRow>
             <TableRow>
@@ -140,7 +140,7 @@ const page = ({ params }: { params: { id: string } }) => {
                 </Link>
               </TableCell>
               <TableCell>
-                <SignPopup text="3 Signed" />
+                <SignPopup text="2 Signed" />
               </TableCell>
             </TableRow>
             <TableRow>

@@ -16,6 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
+import { Check, X } from "lucide-react";
 
 type Props = {
   text: string;
@@ -47,8 +48,8 @@ export function SignPopup({ text }: Props) {
             <TableRow>
               <TableHead>Name</TableHead>
               <TableHead>Position</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Reminder</TableHead>
+              <TableHead>Signed</TableHead>
+              <TableHead>Remarks</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -56,31 +57,27 @@ export function SignPopup({ text }: Props) {
               <TableCell>Ma Heauteng</TableCell>
               <TableCell>Shareholder 1</TableCell>
               <TableCell className=" font-medium text-green-600">
-                Signed
+                <Check/>
               </TableCell>
               <TableCell>
-                <Button variant="outline" disabled>
-                  Resend
-                </Button>
+                <Button>Download</Button>
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Ma Heauteng</TableCell>
               <TableCell>Director 1</TableCell>
               <TableCell className=" font-medium text-green-600">
-                Signed
+                <Check/>
               </TableCell>
               <TableCell>
-                <Button variant="outline" disabled>
-                  Resend
-                </Button>
+                <Button>Download</Button>
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Way To Web Pvt Ltd.</TableCell>
               <TableCell>Director 1</TableCell>
               <TableCell className=" font-medium text-destructive">
-                Unsigned
+                <X/>
               </TableCell>
               <TableCell>
                 <Button variant="outline">Resend</Button>
