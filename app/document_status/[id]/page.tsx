@@ -1,4 +1,4 @@
-"use client";
+
 
 import ButtonLink from "@/components/ButtonLink";
 import { SignPopup, UploadPopup } from "@/components/Popups";
@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/table";
 import { data } from "@/lib/constants";
 import { Slash } from "lucide-react";
+import Link from "next/link";
 
 const page = ({ params }: { params: { id: string } }) => {
   const projectToFetch = data.find((project) => project.id === params.id);
@@ -70,15 +71,16 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell className="font-medium">1</TableCell>
               <TableCell>NNC1 Form</TableCell>
               <TableCell>
-                <span
+                <Link
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={() => window.open("/documents/NNC1.pdf", "_blank")}
+                  href="/documents/NNC1.pdf"
+                  target="_blank"
                 >
                   Print & Preview
-                </span>
+                </Link>
               </TableCell>
               <TableCell>
                 <SignPopup text="3 Signed" />
@@ -88,15 +90,16 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell className="font-medium">2</TableCell>
               <TableCell>Article of Association (A & A)</TableCell>
               <TableCell>
-                <span
+                <Link
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={() => window.open("/documents/AA.pdf", "_blank")}
+                  href="/documents/AA.pdf"
+                  target="_blank"
                 >
                   Print & Preview
-                </span>
+                </Link>
               </TableCell>
               <TableCell className="text-muted-foreground">
                 No Sign Needed
@@ -106,15 +109,16 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell className="font-medium">3</TableCell>
               <TableCell>Share Agreement</TableCell>
               <TableCell>
-                <span
+                <Link
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={() => window.open("/documents/SA.pdf", "_blank")}
+                  href="/documents/SA.pdf"
+                  target="_blank"
                 >
                   Print & Preview
-                </span>
+                </Link>
               </TableCell>
 
               <TableCell>
@@ -125,15 +129,15 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell className="font-medium">4</TableCell>
               <TableCell>Minutes</TableCell>
               <TableCell>
-                <span
+                <Link
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={() => window.open("/documents/MOM.pdf", "_blank")}
+                  href="_blank"
                 >
                   Print & Preview
-                </span>
+                </Link>
               </TableCell>
               <TableCell>
                 <SignPopup text="3 Signed" />
@@ -143,15 +147,16 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell className="font-medium">5</TableCell>
               <TableCell>IRBRI</TableCell>
               <TableCell>
-                <span
+                <Link
                   className={buttonVariants({
                     variant: "secondary",
                     className: "cursor-pointer",
                   })}
-                  onClick={() => window.open("/documents/IRBR1.pdf", "_blank")}
+                  href="/documents/IRBR1.pdf"
+                  target="_blank"
                 >
                   Print & Preview
-                </span>
+                </Link>
               </TableCell>
               <TableCell className="text-muted-foreground">
                 No Sign Needed
@@ -173,7 +178,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableHead>Position</TableHead>
                   <TableHead>Type</TableHead>
                   <TableHead>Download</TableHead>
-                  <TableHead>Upload</TableHead>
+                  <TableHead>Upload Signed NNC1</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -183,10 +188,6 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Shareholder 1</TableCell>
                   <TableCell>Person</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink
-                      href="/documents/Users/Shareholder1/S1.pdf"
-                      toolTipContent="Sign NNC1 Form"
-                    />
                     <ButtonLink
                       href="/documents/Users/Shareholder1/ID.pdf"
                       toolTipContent="Download ID Proof"
@@ -207,10 +208,6 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Company</TableCell>
                   <TableCell className="space-x-1.5">
                     <ButtonLink
-                      href="/documents/Users/Shareholder2/S1.pdf"
-                      toolTipContent="Sign NNC1 Form"
-                    />
-                    <ButtonLink
                       href="/documents/Users/Shareholder2/ID.pdf"
                       toolTipContent="Download ID Proof"
                     />
@@ -225,10 +222,6 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Director 1</TableCell>
                   <TableCell>Person</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink
-                      href="/documents/Users/Shareholder1/S1.pdf"
-                      toolTipContent="Sign NNC1 Form"
-                    />
                     <ButtonLink
                       href="/documents/Users/Shareholder1/ID.pdf"
                       toolTipContent="Download ID Proof"
@@ -249,10 +242,6 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Company</TableCell>
                   <TableCell className="space-x-1.5">
                     <ButtonLink
-                      href="/documents/Users/Director1Company/D1C.pdf"
-                      toolTipContent="Sign NNC1 Form"
-                    />
-                    <ButtonLink
                       href="/documents/Users/Director1Company/ID.pdf"
                       toolTipContent="Download ID Proof"
                     />
@@ -267,10 +256,6 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell>Company Secretary</TableCell>
                   <TableCell>Person</TableCell>
                   <TableCell className="space-x-1.5">
-                    <ButtonLink
-                      href="/documents/Users/CompanySecretary/CS.pdf"
-                      toolTipContent="Sign NNC1 Form"
-                    />
                     <ButtonLink
                       href="/documents/Users/CompanySecretary/ID.pdf"
                       toolTipContent="Download ID Proof"
