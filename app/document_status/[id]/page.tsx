@@ -49,12 +49,15 @@ const page = ({ params }: { params: { id: string } }) => {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <CardHeader>
+      <CardHeader className="flex justify-between items-center w-full flex-row">
+        <div className="space-y-2">
         <CardTitle>Document Status</CardTitle>
         <CardDescription>
           This is the status of documents prepared by the project of your
           company.
         </CardDescription>
+        </div>
+        <Link href="/document_status/m5gr84i9/documents" className={buttonVariants({size: "lg"})}>Confirm</Link>
       </CardHeader>
       <CardContent className="space-y-6">
         <Table>

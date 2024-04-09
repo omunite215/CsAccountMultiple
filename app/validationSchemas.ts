@@ -86,3 +86,31 @@ export const DirectorsSchema = z.object({
 export const CompanySecretaryFormSchema = z.object({
   companySecretary: z.array(userSchema).default([]),
 });
+
+export const ObtainDocumentsFormSchema = z.object({
+  certificateOfIncorporate: z
+    .any()
+    .refine((file: string | any[]) => file?.length == 1, "File is required.")
+    .refine(
+      (file: { size: number }[]) => file[0]?.size <= 3000000,
+      `Max file size is 3MB.`
+    ),
+  notice: z
+    .any()
+    .refine((file: string | any[]) => file?.length == 1, "File is required.")
+    .refine(
+      (file: { size: number }[]) => file[0]?.size <= 3000000,
+      `Max file size is 3MB.`
+    ),
+  reciepts: z
+    .any()
+});
+
+export const ShareCertificateSchema = z.object({
+  incorporate: z.date({
+    required_error: "A date of birth is required.",
+  }),
+  template: z.enum(["default", "blue"], {
+    required_error: "You need to select a template type.",
+  }),
+})
