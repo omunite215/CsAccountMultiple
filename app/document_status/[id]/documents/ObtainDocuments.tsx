@@ -7,23 +7,29 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
+import { ObtainDocumentsFormSchema } from "@/app/validationSchemas";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { ObtainDocumentsFormSchema } from "@/app/validationSchemas";
 
 const ObtainDocuments = () => {
   const form = useForm<z.infer<typeof ObtainDocumentsFormSchema>>({
@@ -53,12 +59,57 @@ const ObtainDocuments = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
+              name="incorporate"
+              render={({ field }) => (
+                <FormItem className="flex flex-col">
+                  <FormLabel>Incorporate Date</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={cn(
+                            "w-[240px] pl-3 text-left font-normal",
+                            !field.value && "text-muted-foreground"
+                          )}
+                        >
+                          {field.value ? (
+                            format(field.value, "PPP")
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        disabled={(date) =>
+                          date > new Date() || date < new Date("1900-01-01")
+                        }
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="certificateOfIncorporate"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Certificate of Incorporate</FormLabel>
                   <FormControl>
-                    <Input placeholder="Certificate of Incorporate" type="file" {...certificateRef} />
+                    <Input
+                      placeholder="Certificate of Incorporate"
+                      type="file"
+                      {...certificateRef}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -84,7 +135,11 @@ const ObtainDocuments = () => {
                 <FormItem>
                   <FormLabel>Receipt</FormLabel>
                   <FormControl>
-                    <Input placeholder="Reciepts" type="file" {...recieptsRef} />
+                    <Input
+                      placeholder="Reciepts"
+                      type="file"
+                      {...recieptsRef}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

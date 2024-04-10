@@ -88,6 +88,9 @@ export const CompanySecretaryFormSchema = z.object({
 });
 
 export const ObtainDocumentsFormSchema = z.object({
+  incorporate: z.date({
+    required_error: "A date of birth is required.",
+  }),
   certificateOfIncorporate: z
     .any()
     .refine((file: string | any[]) => file?.length == 1, "File is required.")
@@ -107,9 +110,7 @@ export const ObtainDocumentsFormSchema = z.object({
 });
 
 export const ShareCertificateSchema = z.object({
-  incorporate: z.date({
-    required_error: "A date of birth is required.",
-  }),
+  
   template: z.enum(["default", "blue"], {
     required_error: "You need to select a template type.",
   }),
