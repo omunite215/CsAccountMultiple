@@ -46,7 +46,7 @@ const Other = () => {
                   href="/documents/NNC1.pdf"
                   className={buttonVariants({ size: "lg", variant: "outline" })}
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
               <TableCell>
@@ -54,7 +54,7 @@ const Other = () => {
                   href="/documents/AA.pdf"
                   className={buttonVariants({ size: "lg", variant: "outline" })}
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
               <TableCell>
@@ -62,7 +62,7 @@ const Other = () => {
                   href="/documents/SA.pdf"
                   className={buttonVariants({ size: "lg", variant: "outline" })}
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
               <TableCell>
@@ -70,7 +70,7 @@ const Other = () => {
                   href="/documents/MOM.pdf"
                   className={buttonVariants({ size: "lg", variant: "outline" })}
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
             </TableRow>
