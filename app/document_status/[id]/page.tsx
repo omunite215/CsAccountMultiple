@@ -1,5 +1,3 @@
-
-
 import ButtonLink from "@/components/ButtonLink";
 import { SignPopup, UploadPopup } from "@/components/Popups";
 import {
@@ -51,13 +49,18 @@ const page = ({ params }: { params: { id: string } }) => {
       </Breadcrumb>
       <CardHeader className="flex justify-between items-center w-full flex-row">
         <div className="space-y-2">
-        <CardTitle>Document Status</CardTitle>
-        <CardDescription>
-          This is the status of documents prepared by the project of your
-          company.
-        </CardDescription>
+          <CardTitle>Document Status</CardTitle>
+          <CardDescription>
+            This is the status of documents prepared by the project of your
+            company.
+          </CardDescription>
         </div>
-        <Link href="/document_status/m5gr84i9/documents" className={buttonVariants({size: "lg"})}>Confirm</Link>
+        <Link
+          href="/document_status/m5gr84i9/documents"
+          className={buttonVariants({ size: "lg" })}
+        >
+          Confirm
+        </Link>
       </CardHeader>
       <CardContent className="space-y-6">
         <Table>
@@ -201,7 +204,13 @@ const page = ({ params }: { params: { id: string } }) => {
                     />
                   </TableCell>
                   <TableCell>
-                    <UploadPopup type="Person" />
+                    <Link
+                      href="/documents/Users/Shareholder1/ID.pdf"
+                      target="_blank"
+                      className={buttonVariants({ variant: "outline" })}
+                    >
+                      Print & Preview
+                    </Link>
                   </TableCell>
                 </TableRow>
                 <TableRow>
