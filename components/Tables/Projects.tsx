@@ -29,6 +29,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronDown } from "lucide-react";
+import Link from "next/link";
 import * as React from "react";
 
 const data: ProjectData[] = [
@@ -88,12 +89,12 @@ export const columns: ColumnDef<ProjectData>[] = [
     },
     cell: ({ row }) => (
       <div className="capitalize">
-        <a
-          href={`/document_status/${row.original.id}`}
+        <Link
+          href="https://comsecaccount.netlify.app/summary"
           className={buttonVariants({ variant: "link" })}
         >
           {row.getValue("company")}
-        </a>
+        </Link>
       </div>
     ),
   },
@@ -112,7 +113,14 @@ export const columns: ColumnDef<ProjectData>[] = [
     },
     cell: ({ row }) => {
       return (
-        <div className="text-right font-medium">{row.getValue("project")}</div>
+        <div className="capitalize">
+        <Link
+          href={`/document_status/${row.original.id}`}
+          className={buttonVariants({ variant: "link" })}
+        >
+          {row.getValue("project")}
+        </Link>
+      </div>
       );
     },
   },
@@ -139,9 +147,14 @@ export const columns: ColumnDef<ProjectData>[] = [
     header: () => <div className="text-right">Published Documents</div>,
     cell: ({ row }) => {
       return (
-        <div className="text-right font-medium">
-          {row.getValue("published")}
-        </div>
+        <div className="capitalize text-right">
+        <Link
+          href={`/document_status/${row.original.id}/documents`}
+          className={buttonVariants({ variant: "link" })}
+        >
+          {row.getValue("company")}
+        </Link>
+      </div>
       );
     },
   },

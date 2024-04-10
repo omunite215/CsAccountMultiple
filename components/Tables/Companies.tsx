@@ -311,26 +311,6 @@ export const columns: ColumnDef<CompanyData>[] = [
     },
   },
   {
-    accessorKey: "next",
-    header: () => <div className="text-right">Next Annual Return Date</div>,
-    cell: ({ row }) => {
-      return (
-        <div className="text-right font-medium">{row.getValue("next")}</div>
-      );
-    },
-  },
-  {
-    accessorKey: "inProcessing",
-    header: () => <div className="text-right">Projects In-Processing</div>,
-    cell: ({ row }) => {
-      return (
-        <div className="text-right font-medium text-yellow-400 dark:text-yellow-500">
-          {row.getValue("inProcessing")}
-        </div>
-      );
-    },
-  },
-  {
     accessorKey: "financialDate",
     header: () => <div className="text-right">Financial Date</div>,
     cell: ({ row }) => {

@@ -85,7 +85,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   href="/documents/NNC1.pdf"
                   target="_blank"
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
               <TableCell>
@@ -104,7 +104,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   href="/documents/AA.pdf"
                   target="_blank"
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
               <TableCell className="text-muted-foreground">
@@ -123,7 +123,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   href="/documents/SA.pdf"
                   target="_blank"
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
 
@@ -142,7 +142,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   })}
                   href="_blank"
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
               <TableCell>
@@ -161,7 +161,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   href="/documents/IRBR1.pdf"
                   target="_blank"
                 >
-                  Print & Preview
+                  Preview
                 </Link>
               </TableCell>
               <TableCell className="text-muted-foreground">
@@ -209,7 +209,7 @@ const page = ({ params }: { params: { id: string } }) => {
                       target="_blank"
                       className={buttonVariants({ variant: "outline" })}
                     >
-                      Print & Preview
+                      Preview
                     </Link>
                   </TableCell>
                 </TableRow>
