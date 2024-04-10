@@ -37,6 +37,9 @@ const Other = () => {
               <TableHead>Article of Association (A&A)</TableHead>
               <TableHead>Share Agreement</TableHead>
               <TableHead>Minutes</TableHead>
+              <TableHead>Certificate of Incorporate</TableHead>
+              <TableHead>Business Registration Notice</TableHead>
+              <TableHead>Receipt</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -60,6 +63,30 @@ const Other = () => {
               <TableCell>
                 <Link
                   href="/documents/SA.pdf"
+                  className={buttonVariants({ size: "lg", variant: "outline" })}
+                >
+                  Preview
+                </Link>
+              </TableCell>
+              <TableCell>
+                <Link
+                  href="/documents/MOM.pdf"
+                  className={buttonVariants({ size: "lg", variant: "outline" })}
+                >
+                  Preview
+                </Link>
+              </TableCell>
+              <TableCell>
+                <Link
+                  href="/documents/MOM.pdf"
+                  className={buttonVariants({ size: "lg", variant: "outline" })}
+                >
+                  Preview
+                </Link>
+              </TableCell>
+              <TableCell>
+                <Link
+                  href="/documents/MOM.pdf"
                   className={buttonVariants({ size: "lg", variant: "outline" })}
                 >
                   Preview
