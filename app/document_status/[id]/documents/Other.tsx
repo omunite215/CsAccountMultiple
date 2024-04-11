@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/card";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { Mail } from "lucide-react";
 const Other = () => {
   return (
     <Card>
@@ -30,7 +31,6 @@ const Other = () => {
       </CardHeader>
       <CardContent>
         <Table>
-          <TableCaption>These Documents will be published.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead>Sr No.</TableHead>
@@ -130,7 +130,9 @@ const Other = () => {
           </TableBody>
         </Table>
         <CardFooter className="justify-end items-center">
-          <Button size="lg">Continue</Button>
+          <Button size="lg">
+            <Mail/>&nbsp;Send E-mail
+          </Button>
         </CardFooter>
       </CardContent>
     </Card>

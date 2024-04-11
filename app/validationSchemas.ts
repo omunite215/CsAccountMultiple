@@ -111,7 +111,7 @@ export const ObtainDocumentsFormSchema = z.object({
 
 export const ShareCertificateSchema = z.object({
   
-  template: z.enum(["default", "blue"], {
+  template: z.enum(["default", "blue", "green", "soft-blue"], {
     required_error: "You need to select a template type.",
   }),
 })

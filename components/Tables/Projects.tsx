@@ -149,7 +149,7 @@ export const columns: ColumnDef<ProjectData>[] = [
       return (
         <div className="capitalize text-right">
         <Link
-          href={`/document_status/${row.original.id}/documents`}
+          href={`/document_status/${row.original.id}/documents/published`}
           className={buttonVariants({ variant: "link" })}
         >
           {row.getValue("company")}

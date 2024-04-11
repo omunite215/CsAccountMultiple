@@ -55,27 +55,8 @@ const ShareCertificate = () => {
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="grid max-w-md grid-cols-2 gap-8 pt-2"
+                    className="grid max-w-xl grid-cols-3 gap-8 pt-2"
                   >
-                    <FormItem>
-                      <FormLabel className="[&:has([data-state=checked])>div]:border-primary">
-                        <FormControl>
-                          <RadioGroupItem value="default" className="sr-only" />
-                        </FormControl>
-                        <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent">
-                          <Image
-                            src="/templates/default.png"
-                            width={500}
-                            height={450}
-                            className=""
-                            alt="default-template"
-                          />
-                        </div>
-                        <span className="block w-full p-2 text-center font-normal">
-                          Default Template
-                        </span>
-                      </FormLabel>
-                    </FormItem>
                     <FormItem>
                       <FormLabel className="[&:has([data-state=checked])>div]:border-primary">
                         <FormControl>
@@ -83,9 +64,11 @@ const ShareCertificate = () => {
                         </FormControl>
                         <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent">
                           <Image
-                            src="/templates/blue.png"
+                            src="/templates/blue.jpg"
                             width={500}
                             height={450}
+                            priority
+                            className="object-cover cursor-pointer"
                             alt="blue-template"
                           />
                         </div>
@@ -94,6 +77,47 @@ const ShareCertificate = () => {
                         </span>
                       </FormLabel>
                     </FormItem>
+                    <FormItem>
+                      <FormLabel className="[&:has([data-state=checked])>div]:border-primary">
+                        <FormControl>
+                          <RadioGroupItem value="green" className="sr-only" />
+                        </FormControl>
+                        <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent">
+                          <Image
+                            src="/templates/green.jpg"
+                            width={500}
+                            height={450}
+                            priority
+                            className="object-cover cursor-pointer"
+                            alt="green-template"
+                          />
+                        </div>
+                        <span className="block w-full p-2 text-center font-normal">
+                          Green Template
+                        </span>
+                      </FormLabel>
+                    </FormItem>
+                    <FormItem>
+                      <FormLabel className="[&:has([data-state=checked])>div]:border-primary">
+                        <FormControl>
+                          <RadioGroupItem value="soft-blue" className="sr-only" />
+                        </FormControl>
+                        <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent">
+                          <Image
+                            src="/templates/soft-blue.jpg"
+                            width={500}
+                            height={450}
+                            priority
+                            className="object-cover cursor-pointer"
+                            alt="soft-blue-template"
+                          />
+                        </div>
+                        <span className="block w-full p-2 text-center font-normal">
+                          Soft-blue Template
+                        </span>
+                      </FormLabel>
+                    </FormItem>
+
                   </RadioGroup>
                 </FormItem>
               )}
