@@ -90,7 +90,7 @@ export const columns: ColumnDef<ProjectData>[] = [
     cell: ({ row }) => (
       <div className="capitalize">
         <Link
-          href="https://comsecaccount.netlify.app/summary"
+          href="https://comsecaccount.netlify.app/summary/published"
           className={buttonVariants({ variant: "link" })}
         >
           {row.getValue("company")}
