@@ -201,7 +201,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableHead>Documents</TableHead>
                   <TableHead>Position</TableHead>
                   <TableHead>Type</TableHead>
-                  <TableHead>Download</TableHead>
+                  <TableHead>Print</TableHead>
                   <TableHead>Upload Signed NNC1</TableHead>
                 </TableRow>
               </TableHeader>
