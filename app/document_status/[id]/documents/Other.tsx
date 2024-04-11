@@ -20,7 +20,7 @@ import {
 import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { Mail } from "lucide-react";
-const Other = () => {
+const Other = ({ disabled = true }: { disabled?: boolean }) => {
   return (
     <Card>
       <CardHeader>
@@ -129,11 +129,14 @@ const Other = () => {
             </TableRow>
           </TableBody>
         </Table>
-        <CardFooter className="justify-end items-center">
-          <Button size="lg">
-            <Mail/>&nbsp;Send E-mail
-          </Button>
-        </CardFooter>
+        {disabled && (
+          <CardFooter className="justify-end items-center">
+            <Button size="lg">
+              <Mail />
+              &nbsp;Send E-mail
+            </Button>
+          </CardFooter>
+        )}
       </CardContent>
     </Card>
   );

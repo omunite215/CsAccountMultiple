@@ -4,7 +4,7 @@ import Other from '../Other'
 const page = () => {
   return (
     <section className='py-6'>
-        <Other/>
+        <Other disabled={false}/>
     </section>
   )
 }
