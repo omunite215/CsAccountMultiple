@@ -107,8 +107,17 @@ const page = ({ params }: { params: { id: string } }) => {
                   Preview
                 </Link>
               </TableCell>
-              <TableCell className="text-muted-foreground">
-                No Sign Needed
+              <TableCell>
+                <Link
+                  className={buttonVariants({
+                    variant: "secondary",
+                    className: "cursor-pointer",
+                  })}
+                  href="/documents/AA.pdf"
+                  target="_blank"
+                >
+                  Print
+                </Link>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -164,8 +173,17 @@ const page = ({ params }: { params: { id: string } }) => {
                   Preview
                 </Link>
               </TableCell>
-              <TableCell className="text-muted-foreground">
-                No Sign Needed
+              <TableCell>
+                <Link
+                  className={buttonVariants({
+                    variant: "secondary",
+                    className: "cursor-pointer",
+                  })}
+                  href="/documents/IRBR1.pdf"
+                  target="_blank"
+                >
+                  Print
+                </Link>
               </TableCell>
             </TableRow>
           </TableBody>
