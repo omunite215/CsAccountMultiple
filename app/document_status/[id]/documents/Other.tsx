@@ -33,17 +33,15 @@ const Other = () => {
           <TableCaption>These Documents will be published.</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead>NNC1 Form (Signed)</TableHead>
-              <TableHead>Article of Association (A&A)</TableHead>
-              <TableHead>Share Agreement</TableHead>
-              <TableHead>Minutes</TableHead>
-              <TableHead>Certificate of Incorporate</TableHead>
-              <TableHead>Business Registration Notice</TableHead>
-              <TableHead>Receipt</TableHead>
+              <TableHead>Sr No.</TableHead>
+              <TableHead>Documents</TableHead>
+              <TableHead>Preview</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow>
+              <TableCell>1</TableCell>
+              <TableCell>NNC1 Form (Signed)</TableCell>
               <TableCell>
                 <Link
                   href="/documents/NNC1.pdf"
@@ -52,6 +50,10 @@ const Other = () => {
                   Preview
                 </Link>
               </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>2</TableCell>
+              <TableCell>Article of Association (A&A)</TableCell>
               <TableCell>
                 <Link
                   href="/documents/AA.pdf"
@@ -60,6 +62,10 @@ const Other = () => {
                   Preview
                 </Link>
               </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>3</TableCell>
+              <TableCell>Share Agreement</TableCell>
               <TableCell>
                 <Link
                   href="/documents/SA.pdf"
@@ -68,6 +74,12 @@ const Other = () => {
                   Preview
                 </Link>
               </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>4</TableCell>
+              <TableCell>Minutes</TableCell>
+
               <TableCell>
                 <Link
                   href="/documents/MOM.pdf"
@@ -76,6 +88,11 @@ const Other = () => {
                   Preview
                 </Link>
               </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>5</TableCell>
+              <TableCell>Certificate of Incorporate</TableCell>
               <TableCell>
                 <Link
                   href="/documents/MOM.pdf"
@@ -84,6 +101,11 @@ const Other = () => {
                   Preview
                 </Link>
               </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>6</TableCell>
+              <TableCell>Business Registration Notice</TableCell>
               <TableCell>
                 <Link
                   href="/documents/MOM.pdf"
@@ -92,6 +114,10 @@ const Other = () => {
                   Preview
                 </Link>
               </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>7</TableCell>
+              <TableCell>Receipt</TableCell>
               <TableCell>
                 <Link
                   href="/documents/MOM.pdf"
