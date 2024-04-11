@@ -17,8 +17,8 @@ const ButtonLink = ({ href, toolTipContent }: Props) => {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline">
-            <a href={href} download>
-              <Download/>
+            <a href={href} target="_blank">
+              Print
             </a>
           </Button>
         </TooltipTrigger>
