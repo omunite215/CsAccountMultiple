@@ -117,6 +117,19 @@ const ObtainDocuments = () => {
             />
             <div className="grid sm:grid-cols-2 grid-cols-1 gap-3">
               <FormField
+                name="noticeNumber"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Business Registration Number</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Eg: XXXX" type="text" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
                 control={form.control}
                 name="notice"
                 render={({ field }) => (
@@ -124,23 +137,6 @@ const ObtainDocuments = () => {
                     <FormLabel>Business Registration Notice</FormLabel>
                     <FormControl>
                       <Input placeholder="Notice" type="file" {...noticeRef} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                name="noticeNumber"
-                control={form.control}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Business Registration Number</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Eg: XXXX"
-                        type="text"
-                        {...field}
-                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
