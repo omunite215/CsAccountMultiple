@@ -12,7 +12,7 @@ const Main = () => {
         <TabsTrigger value="revise">Revise Details</TabsTrigger>
         <TabsTrigger value="documents">Obtain Documents</TabsTrigger>
         <TabsTrigger value="certificate">Share Certificate</TabsTrigger>
-        <TabsTrigger value="other">Other Documents</TabsTrigger>
+        <TabsTrigger value="other">Published Documents</TabsTrigger>
       </TabsList>
       <TabsContent value="revise">
         <CompanyRevise />
