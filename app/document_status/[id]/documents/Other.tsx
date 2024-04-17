@@ -24,9 +24,9 @@ const Other = ({ disabled = true }: { disabled?: boolean }) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Other Documents</CardTitle>
+        <CardTitle>Published Documents</CardTitle>
         <CardDescription>
-          Here are the other documents for signing.
+          Here are the other documents for publishing.
         </CardDescription>
       </CardHeader>
       <CardContent>

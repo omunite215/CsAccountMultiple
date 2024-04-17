@@ -214,11 +214,11 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell className="space-x-1.5">
                     <ButtonLink
                       href="/documents/Users/Shareholder1/ID.pdf"
-                      toolTipContent="Download ID Proof"
+                      toolTipContent="Print ID Proof"
                     />
                     <ButtonLink
                       href="/documents/Users/Shareholder1/ID.pdf"
-                      toolTipContent="Download Address Proof"
+                      toolTipContent="Print Address Proof"
                     />
                   </TableCell>
                   <TableCell>
@@ -239,7 +239,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell className="space-x-1.5">
                     <ButtonLink
                       href="/documents/Users/Shareholder2/ID.pdf"
-                      toolTipContent="Download ID Proof"
+                      toolTipContent="Print ID Proof"
                     />
                   </TableCell>
                   <TableCell>
@@ -254,11 +254,11 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell className="space-x-1.5">
                     <ButtonLink
                       href="/documents/Users/Shareholder1/ID.pdf"
-                      toolTipContent="Download ID Proof"
+                      toolTipContent="Print ID Proof"
                     />
                     <ButtonLink
                       href="/documents/Users/Shareholder1/ID.pdf"
-                      toolTipContent="Download Address Proof"
+                      toolTipContent="Print Address Proof"
                     />
                   </TableCell>
                   <TableCell>
@@ -273,7 +273,7 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell className="space-x-1.5">
                     <ButtonLink
                       href="/documents/Users/Director1Company/ID.pdf"
-                      toolTipContent="Download ID Proof"
+                      toolTipContent="Print ID Proof"
                     />
                   </TableCell>
                   <TableCell>
@@ -288,11 +288,11 @@ const page = ({ params }: { params: { id: string } }) => {
                   <TableCell className="space-x-1.5">
                     <ButtonLink
                       href="/documents/Users/CompanySecretary/ID.pdf"
-                      toolTipContent="Download ID Proof"
+                      toolTipContent="Print ID Proof"
                     />
                     <ButtonLink
                       href="/documents/Users/CompanySecretary/ID.pdf"
-                      toolTipContent="Download Address Proof"
+                      toolTipContent="Print Address Proof"
                     />
                   </TableCell>
                   <TableCell>

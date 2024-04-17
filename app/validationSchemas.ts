@@ -105,13 +105,12 @@ export const ObtainDocumentsFormSchema = z.object({
       (file: { size: number }[]) => file[0]?.size <= 3000000,
       `Max file size is 3MB.`
     ),
-  reciepts: z
-    .any()
+  noticeNumber: z.string().min(10).max(16),
+  reciepts: z.any(),
 });
 
 export const ShareCertificateSchema = z.object({
-  
   template: z.enum(["default", "blue", "green", "soft-blue"], {
     required_error: "You need to select a template type.",
   }),
-})
+});
