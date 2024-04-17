@@ -79,7 +79,7 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell>
                 <Link
                   className={buttonVariants({
-                    variant: "secondary",
+                    variant: "outline",
                     className: "cursor-pointer",
                   })}
                   href="/documents/NNC1.pdf"
@@ -98,7 +98,7 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell>
                 <Link
                   className={buttonVariants({
-                    variant: "secondary",
+                    variant: "outline",
                     className: "cursor-pointer",
                   })}
                   href="/documents/AA.pdf"
@@ -110,7 +110,7 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell>
                 <Link
                   className={buttonVariants({
-                    variant: "secondary",
+                    variant: "outline",
                     className: "cursor-pointer",
                   })}
                   href="/documents/AA.pdf"
@@ -126,7 +126,7 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell>
                 <Link
                   className={buttonVariants({
-                    variant: "secondary",
+                    variant: "outline",
                     className: "cursor-pointer",
                   })}
                   href="/documents/SA.pdf"
@@ -146,7 +146,7 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell>
                 <Link
                   className={buttonVariants({
-                    variant: "secondary",
+                    variant: "outline",
                     className: "cursor-pointer",
                   })}
                   href="_blank"
@@ -164,7 +164,7 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell>
                 <Link
                   className={buttonVariants({
-                    variant: "secondary",
+                    variant: "outline",
                     className: "cursor-pointer",
                   })}
                   href="/documents/IRBR1.pdf"
@@ -176,7 +176,7 @@ const page = ({ params }: { params: { id: string } }) => {
               <TableCell>
                 <Link
                   className={buttonVariants({
-                    variant: "secondary",
+                    variant: "outline",
                     className: "cursor-pointer",
                   })}
                   href="/documents/IRBR1.pdf"
