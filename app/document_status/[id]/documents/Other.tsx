@@ -27,7 +27,7 @@ const Other = ({ disabled = true }: { disabled?: boolean }) => {
        <Breadcrumb className="py-4 px-3">
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">ABCD</BreadcrumbLink>
+            <BreadcrumbLink href="#">ABCD</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>
             <Slash />
