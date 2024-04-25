@@ -38,8 +38,8 @@ const data: ProjectData[] = [
     status: "In-Processing",
     company: "ABCD",
     project: "Incorporation",
-    start: "01-03-2024",
-    due: "31-03-2024",
+    start: "01-Mar-2024",
+    due: "31-Mar-2024",
     published: 2,
     processBy: "Yon Roe",
   },
@@ -203,7 +203,7 @@ export function Projects() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter companies..."
+          placeholder="Search..."
           value={(table.getColumn("company")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("company")?.setFilterValue(event.target.value)
