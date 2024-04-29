@@ -152,7 +152,7 @@ export const columns: ColumnDef<ProjectData>[] = [
             href={`/document_status/${row.original.id}`}
             className={buttonVariants({ variant: "link" })}
           >
-            {row.getValue("project")}
+            {row.getValue("published")}
           </Link>
         </div>
       );
