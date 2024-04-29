@@ -30,7 +30,7 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import * as React from "react";
+import { useState } from "react";
 
 const data: ProjectData[] = [
   {
@@ -114,13 +114,13 @@ export const columns: ColumnDef<ProjectData>[] = [
     cell: ({ row }) => {
       return (
         <div className="capitalize">
-        <Link
-          href={`/document_status/${row.original.id}`}
-          className={buttonVariants({ variant: "link" })}
-        >
-          {row.getValue("project")}
-        </Link>
-      </div>
+          <Link
+            href={`/document_status/${row.original.id}`}
+            className={buttonVariants({ variant: "link" })}
+          >
+            {row.getValue("project")}
+          </Link>
+        </div>
       );
     },
   },
@@ -147,38 +147,44 @@ export const columns: ColumnDef<ProjectData>[] = [
     header: () => <div className="text-right">Published Documents</div>,
     cell: ({ row }) => {
       return (
-        <div className="capitalize text-right">
-        <Link
-          href={`/document_status/${row.original.id}/documents/published`}
-          className={buttonVariants({ variant: "link" })}
-        >
-          {row.getValue("published")}
-        </Link>
-      </div>
+        <div className="capitalize">
+          <Link
+            href={`/document_status/${row.original.id}`}
+            className={buttonVariants({ variant: "link" })}
+          >
+            {row.getValue("project")}
+          </Link>
+        </div>
       );
     },
   },
   {
     accessorKey: "processBy",
-    header: () => <div className="text-right">Process By</div>,
-    cell: ({ row }) => {
+    header: ({ column }) => {
       return (
-        <div className="text-right font-medium">
-          {row.getValue("processBy")}
-        </div>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Processed By
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
       );
+    },
+    cell: ({ row }) => {
+      return <div className="capitalize">{row.getValue("processBy")}</div>;
     },
   },
 ];
 
 export function Projects() {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     []
   );
   const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
+    useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
     data,
@@ -201,12 +207,22 @@ export function Projects() {
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
+      <div className="flex items-center gap-6 justify-between py-4">
         <Input
           placeholder="Search..."
           value={(table.getColumn("company")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("company")?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm"
+        />
+        <Input
+          placeholder="Search Processed By..."
+          value={
+            (table.getColumn("processBy")?.getFilterValue() as string) ?? ""
+          }
+          onChange={(event) =>
+            table.getColumn("processBy")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />

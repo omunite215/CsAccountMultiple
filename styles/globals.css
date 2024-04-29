@@ -1,7 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+.rdp-vhidden {
+  @apply hidden;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
