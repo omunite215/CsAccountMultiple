@@ -172,7 +172,7 @@ export const columns: ColumnDef<ProjectData>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="capitalize">{row.getValue("processBy")}</div>;
+      return <div className="capitalize text-right font-medium">{row.getValue("processBy")}</div>;
     },
   },
 ];
