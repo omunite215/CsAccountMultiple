@@ -160,19 +160,11 @@ export const columns: ColumnDef<ProjectData>[] = [
   },
   {
     accessorKey: "processBy",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Processed By
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: () => <div className="text-right">Processed By</div>,
     cell: ({ row }) => {
-      return <div className="capitalize text-right font-medium">{row.getValue("processBy")}</div>;
+      return (
+        <div className="text-right font-medium">{row.getValue("processBy")}</div>
+      );
     },
   },
 ];
