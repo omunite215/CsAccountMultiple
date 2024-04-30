@@ -29,7 +29,7 @@ export default function Home() {
           <TabsContent value="projects" className="font-sans">
             <Link
               className={buttonVariants({ variant: "outline" })}
-              href="https://cs-account-single.vercel.app/"
+              href="https://comsecaccount.netlify.app/"
               target="_blank"
             >
               + Add New Project
@@ -40,14 +40,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Link
                 className={buttonVariants({ variant: "outline" })}
-                href="https://cs-account-single.vercel.app/"
+                href="https://comsecaccount.netlify.app/"
                 target="_blank"
               >
                 + Add New Company
               </Link>
               <Link
                 className={buttonVariants({ variant: "outline" })}
-                href="https://cs-account-single.vercel.app/"
+                href="https://comsecaccount.netlify.app/"
                 target="_blank"
               >
                 + Add New Project

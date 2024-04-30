@@ -8,6 +8,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { format } from "date-fns";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import {
   Table,
   TableBody,
@@ -28,9 +40,10 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown } from "lucide-react";
+import { ArrowUpDown, ChevronDown, CalendarIcon, Search } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 const data: ProjectData[] = [
   {
@@ -38,8 +51,8 @@ const data: ProjectData[] = [
     status: "In-Processing",
     company: "ABCD",
     project: "Incorporation",
-    start: "01-Mar-2024",
-    due: "31-Mar-2024",
+    start: format(new Date("03/01/2024"), "dd-MMM-yyyy"),
+    due: format(new Date("31-Mar-2024"), "dd-MMM-yyyy"),
     published: 2,
     processBy: "Yon Roe",
   },
@@ -147,7 +160,7 @@ export const columns: ColumnDef<ProjectData>[] = [
     header: () => <div className="text-right">Published Documents</div>,
     cell: ({ row }) => {
       return (
-        <div className="capitalize">
+        <div className="capitalize text-right">
           <Link
             href={`/document_status/${row.original.id}`}
             className={buttonVariants({ variant: "link" })}
@@ -163,19 +176,25 @@ export const columns: ColumnDef<ProjectData>[] = [
     header: () => <div className="text-right">Processed By</div>,
     cell: ({ row }) => {
       return (
-        <div className="text-right font-medium">{row.getValue("processBy")}</div>
+        <div className="text-right font-medium">
+          {row.getValue("processBy")}
+        </div>
       );
     },
   },
 ];
 
 export function Projects() {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
-    []
+  const [isOpen, setIsOpen] = useState(false);
+  const [projectStartDate, setProjectStartDate] = useState<Date | undefined>(new Date());
+  const [projectEndDate, setProjectEndDate] = useState<Date | undefined>(new Date());
+  const [projectDueStartDate, setProjectDueStartDate] = useState<Date | undefined>(
+    new Date()
   );
-  const [columnVisibility, setColumnVisibility] =
-    useState<VisibilityState>({});
+  const [projectDueEndDate, setProjectDueEndDate] = useState<Date | undefined>(new Date());
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
@@ -199,6 +218,10 @@ export function Projects() {
 
   return (
     <div className="w-full">
+      <Collapsible  open={isOpen}
+      onOpenChange={setIsOpen}>
+      <CollapsibleTrigger asChild className="my-4"><Button>Search<Search size={16} className="ml-2"/></Button></CollapsibleTrigger>
+      <CollapsibleContent className="CollapsibleContent">
       <div className="flex items-center gap-6 justify-between py-4">
         <Input
           placeholder="Search..."
@@ -208,6 +231,65 @@ export function Projects() {
           }
           className="max-w-sm"
         />
+        <div className="flex items-start gap-6 flex-col">
+          <span>Project Start Date</span>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn(
+                  "w-[240px] justify-start text-left font-normal",
+                  !projectStartDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {projectStartDate ? (
+                  format(projectStartDate, "dd-MMM-yyyy")
+                ) : (
+                  <span>Pick a Start Date</span>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align="start" className=" w-auto p-0">
+              <Calendar
+                mode="single"
+                captionLayout="dropdown-buttons"
+                selected={projectStartDate}
+                onSelect={setProjectStartDate}
+                fromYear={1960}
+                toYear={2030}
+              />
+            </PopoverContent>
+          </Popover>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn(
+                  "w-[240px] justify-start text-left font-normal",
+                  !projectEndDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {projectEndDate ? (
+                  format(projectEndDate, "dd-MMM-yyyy")
+                ) : (
+                  <span>Pick an End Date</span>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align="start" className=" w-auto p-0">
+              <Calendar
+                mode="single"
+                captionLayout="dropdown-buttons"
+                selected={projectEndDate}
+                onSelect={setProjectEndDate}
+                fromYear={1960}
+                toYear={2030}
+              />
+            </PopoverContent>
+          </Popover>
+        </div>
         <Input
           placeholder="Search Processed By..."
           value={
@@ -218,6 +300,65 @@ export function Projects() {
           }
           className="max-w-sm"
         />
+        <div className="flex items-start gap-6 flex-col">
+          <span>Project Due/Completed Date</span>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn(
+                  "w-[240px] justify-start text-left font-normal",
+                  !projectDueStartDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {projectDueStartDate ? (
+                  format(projectDueStartDate, "dd-MMM-yyyy")
+                ) : (
+                  <span>Pick a Start Date</span>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align="start" className=" w-auto p-0">
+              <Calendar
+                mode="single"
+                captionLayout="dropdown-buttons"
+                selected={projectDueStartDate}
+                onSelect={setProjectDueStartDate}
+                fromYear={1960}
+                toYear={2030}
+              />
+            </PopoverContent>
+          </Popover>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn(
+                  "w-[240px] justify-start text-left font-normal",
+                  !projectDueEndDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {projectDueEndDate ? (
+                  format(projectDueEndDate, "dd-MMM-yyyy")
+                ) : (
+                  <span>Pick an End Date</span>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align="start" className=" w-auto p-0">
+              <Calendar
+                mode="single"
+                captionLayout="dropdown-buttons"
+                selected={projectDueEndDate}
+                onSelect={setProjectDueEndDate}
+                fromYear={1960}
+                toYear={2030}
+              />
+            </PopoverContent>
+          </Popover>
+        </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
@@ -244,7 +385,9 @@ export function Projects() {
               })}
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
+      </div></CollapsibleContent>
+      </Collapsible>
+      
       <div className="rounded-md border">
         <Table>
           <TableHeader>
