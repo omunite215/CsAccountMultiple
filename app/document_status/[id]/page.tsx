@@ -122,7 +122,7 @@ const page = ({ params }: { params: { id: string } }) => {
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">3</TableCell>
-              <TableCell>Share Agreement</TableCell>
+              <TableCell>Ordinary Share Agreement</TableCell>
               <TableCell>
                 <Link
                   className={buttonVariants({
