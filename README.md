@@ -1,2 +1,2 @@
-Project - ComSec360 - Account (Multiple Company)
+Project - ComSec360 - Account User (Multiple Company)
 Not for Commercial Purpose
