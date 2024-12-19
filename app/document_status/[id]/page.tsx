@@ -149,7 +149,7 @@ const page = ({ params }: { params: { id: string } }) => {
                     variant: "outline",
                     className: "cursor-pointer",
                   })}
-                  href="_blank"
+                  href="/documents/MOM.pdf"
                 >
                   Preview
                 </Link>
